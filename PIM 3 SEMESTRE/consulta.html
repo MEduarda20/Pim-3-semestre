@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVET - Consulta de Laudos</title>
+    <link rel="stylesheet" href="style-index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Estilos exclusivos para deixar a caixinha de busca perfeita */
+        body {
+            background: linear-gradient(135deg, #e0f2f1 0%, #a7cdeb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .header-consulta {
+            background: white;
+            width: 100%;
+            max-width: 700px;
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            background: rgba(255, 255, 255, 0.98);
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-bar input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .btn-buscar {
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-buscar:hover {
+            background: #004494;
+        }
+
+        /* O Cartão de Resultado que começa escondido (display: none) */
+        .resultado-card {
+            display: none; 
+            background: #f8f9fa;
+            border-left: 5px solid #04c86e;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: left;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-consulta">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-microscope fa-2x" style="color: #0056b3;"></i>
+            <h2 style="color: #0056b3; font-size: 22px; font-weight: 700;">UNIVET</h2>
+        </div>
+        <a href="index.html" style="text-decoration: none; color: #666; font-weight: 600; font-size: 14px;">
+            <i class="fas fa-arrow-left"></i> Voltar ao Site
+        </a>
+    </div>
+
+    <div class="search-container">
+        <h2 style="color: #2c3e50; font-size: 26px; margin-bottom: 10px;">Área do Tutor</h2>
+        <p style="color: #7f8c8d; font-size: 15px;">Digite o código do paciente ou CPF para visualizar os resultados de exames.</p>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Ex: 123.456.789-00">
+            <button class="btn-buscar" onclick="mostrarResultado()">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+
+        <div id="box-resultado" class="resultado-card">
+            <h3 style="color: #0056b3; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">
+                <i class="fas fa-file-medical"></i> Laudo Encontrado
+            </h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <p><strong>Tutor:</strong> João da Silva</p>
+                <p><strong>Paciente (Pet):</strong> Rex (Golden Retriever)</p>
+                <p><strong>Exame:</strong> Hemograma Completo</p>
+                <p><strong>Data de Emissão:</strong> 23/05/2026</p>
+            </div>
+            
+            <p style="margin-bottom: 15px;"><strong>Status:</strong> <span style="background: #04c86e; color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 600;">Concluído</span></p>
+            
+            <div style="background: white; padding: 20px; border: 1px solid #e1e8ed; border-radius: 10px;">
+                <p style="color: #34495e; font-size: 15px; margin-bottom: 10px;"><strong>Resultado do Médico:</strong></p>
+                <p style="color: #555; font-style: italic;">"Exame dentro dos parâmetros normais. Leve desidratação."</p>
+                <hr style="border: none; border-top: 1px dashed #ccc; margin: 15px 0;">
+                <p style="color: #888; font-size: 13px;">Veterinário Responsável: Dra. Ana Costa (CRMV 12345-SP)</p>
+            </div>
+            
+            <button style="width: 100%; background: #0056b3; color: white; border: none; padding: 15px; border-radius: 10px; margin-top: 20px; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-download"></i> Baixar PDF do Laudo
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarResultado() {
+            document.getElementById('box-resultado').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

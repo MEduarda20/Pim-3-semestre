@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #2c3e50;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #152e50;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Banner de Boas-vindas */
+.banner {
+    background: linear-gradient(135deg, #0056b3 0%, #04c86e 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Seção de Serviços */
+.servicos-section {
+    max-width: 1000px;
+    margin: -30px auto 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-servico {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card-servico:hover {
+    transform: translateY(-5px);
+}
+
+.card-servico i {
+    font-size: 40px;
+    color: #04c86e;
+    margin-bottom: 15px;
+}
+
+.card-servico h3 {
+    color: #152e50;
+    margin-bottom: 10px;
+}
+
+.card-servico p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Área do Botão de Resultados */
+.cta-resultados {
+    text-align: center;
+    margin: 50px 20px 80px 20px;
+}
+
+.btn-resultados {
+    background-color: #152e50;
+    color: white;
+    text-decoration: none;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(21, 46, 80, 0.2);
+    transition: background 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-resultados:hover {
+    background-color: #04c86e;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    /* Ajusta o cabeçalho para empilhar o logo e o texto */
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    /* Diminui os espaços do banner principal */
+    .banner {
+        padding: 40px 15px;
+    }
+
+    .banner h2 {
+        font-size: 26px; /* Fonte menor para não vazar da tela */
+    }
+
+    /* Sobe um pouco os cartões de serviço */
+    .servicos-section {
+        margin-top: -15px;
+        padding: 0 15px;
+    }
+
+    /* Faz o botão preencher a tela no celular para facilitar o clique */
+    .btn-resultados {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}
+
+/* ESTILO DO RODAPÉ (FOOTER)*/
+footer {
+    background-color: #152e50; /* Mesmo azul corporativo do cabeçalho */
+    color: #e0e6ed;
+    padding: 40px 20px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h3 {
+    color: #04c86e; /* Destaque em verde-água */
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-col i {
+    color: #04c86e;
+    margin-right: 8px;
+    width: 18px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #a0aec0;
+}

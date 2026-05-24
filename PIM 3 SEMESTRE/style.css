@@ -1,0 +1,320 @@
+/* Importando a fonte moderna do Google Fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset básico e tipografia global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paleta de Cores Corporativas  */
+:root {
+    --primary-blue: #152e50;    /* Azul escuro corporativo (header/nav) */
+    --accent-teal: #04c86e;     /* Verde-água/teal vibrante para ações */
+    --accent-blue: #0a3161;     /* Azul de destaque secundário */
+    --text-dark: #2c3e50;      /* Cinza escuro para texto principal */
+    --text-grey: #7f8c8d;      /* Cinza médio para descrições */
+    --background-light: #f5f5f5; /* Cinza clarinho para secções */
+    --white: #ffffff;
+}
+
+body {
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/*A barra escura superior */
+.top-bar {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Info de atendimento e social */
+.top-bar .info-atendimento {
+    letter-spacing: 0.5px;
+}
+
+.top-bar .social-and-phone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Ícones sociais e telefone */
+.top-bar .social-icons,
+.top-bar .phone-dropdown {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.top-bar .social-icons:hover,
+.top-bar .phone-dropdown:hover {
+    color: var(--accent-teal);
+}
+
+/*(Área do logo e nav) */
+.main-header {
+    background-color: var(--white);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.main-header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-header .logo-text {
+    color: var(--primary-blue);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+/* Navegação Principal */
+.main-header .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-header .main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase; /* Links em maiúsculas como no reference */
+    transition: color 0.3s ease;
+}
+
+.main-header .main-nav a:hover,
+.main-header .main-nav a.active {
+    color: var(--accent-blue);
+}
+
+/*Área principal com texto e visual*/
+.hero-section {
+    position: relative;
+    padding: 100px 30px;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+/* O fundo estilizado no canto inferior direito */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(167, 205, 235, 0.2) 0%, rgba(255, 255, 255, 0) 80%);
+    border-radius: 50%;
+    z-index: 0; /* Fica atrás do texto */
+}
+
+/* Content Container (Texto na esquerda) */
+.hero-section .hero-content {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    z-index: 1; /* Fica na frente do fundo */
+}
+
+/* O título gigante e arrojado */
+.hero-section .hero-content h1 {
+    color: var(--primary-blue);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 25px;
+}
+
+/* Descrição */
+.hero-section .hero-content p {
+    color: var(--text-grey);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Botão da Hero */
+.hero-section .hero-content .hero-btn {
+    background-color: var(--accent-blue);
+    color: var(--white);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.hero-section .hero-content .hero-btn:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* --- 4. FLOATING CTA --- (O cartão de contacto flutuante) */
+.floating-cta {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 300px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    backdrop-filter: blur(5px); /* Efeito suave no fundo */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Barra verde superior */
+.floating-cta .cta-header {
+    background-color: var(--accent-teal);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Corpo do cartão */
+.floating-cta .cta-body {
+    text-align: center;
+}
+
+.floating-cta .cta-body p.label {
+    font-size: 12px;
+    color: var(--text-grey);
+    margin-bottom: 8px;
+}
+
+/* Campo de telefone estilizado */
+.floating-cta .cta-body .phone-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Botão de contacto verde */
+.floating-cta .cta-body .cta-btn {
+    background-color: var(--accent-teal);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-cta .cta-body .cta-btn:hover {
+    background-color: #03a85b; /* Verde-água mais escuro */
+}
+
+/* O pequeno ícone flutuante do WhatsApp no canto */
+.floating-whatsapp-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-teal);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 24px;
+    z-index: 15;
+    transition: background-color 0.3s;
+}
+
+.floating-whatsapp-icon:hover {
+    background-color: #03a85b;
+}
+
+/*RESPONSIVIDADE*/
+
+/* Ajustes para ecrãs menores */
+@media (max-width: 991px) {
+    .top-bar,
+    .main-header,
+    .hero-section {
+        padding: 15px 20px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero-section .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: 40px; /* Diminui o título no mobile */
+    }
+
+    /* Move o cartão de contato para baixo e centra */
+    .floating-cta {
+        position: static;
+        transform: none;
+        margin: 30px auto;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-section .hero-content .hero-btn {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+}
